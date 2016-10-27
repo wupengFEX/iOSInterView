@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		602502751DC1C93C0051BE52 /* NSArray+StackAndQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 602502741DC1C93C0051BE52 /* NSArray+StackAndQueue.m */; };
 		60BAEAC21DBF230700F35185 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BAEAC11DBF230700F35185 /* main.m */; };
 		60BAEAC51DBF230700F35185 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BAEAC41DBF230700F35185 /* AppDelegate.m */; };
 		60BAEAC81DBF230700F35185 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BAEAC71DBF230700F35185 /* ViewController.m */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		602502731DC1C93C0051BE52 /* NSArray+StackAndQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+StackAndQueue.h"; sourceTree = "<group>"; };
+		602502741DC1C93C0051BE52 /* NSArray+StackAndQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+StackAndQueue.m"; sourceTree = "<group>"; };
 		60BAEABD1DBF230700F35185 /* iOSInterView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSInterView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60BAEAC11DBF230700F35185 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		60BAEAC31DBF230700F35185 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -120,6 +123,8 @@
 				60BAEACE1DBF230700F35185 /* LaunchScreen.storyboard */,
 				60BAEAD11DBF230700F35185 /* Info.plist */,
 				60BAEAC01DBF230700F35185 /* Supporting Files */,
+				602502731DC1C93C0051BE52 /* NSArray+StackAndQueue.h */,
+				602502741DC1C93C0051BE52 /* NSArray+StackAndQueue.m */,
 			);
 			path = iOSInterView;
 			sourceTree = "<group>";
@@ -283,6 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				602502751DC1C93C0051BE52 /* NSArray+StackAndQueue.m in Sources */,
 				60BAEAF51DBF239A00F35185 /* BinarySortTree.m in Sources */,
 				60BAEAC81DBF230700F35185 /* ViewController.m in Sources */,
 				60BAEAC51DBF230700F35185 /* AppDelegate.m in Sources */,
@@ -519,6 +525,7 @@
 				60BAEAEC1DBF230700F35185 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		60BAEAED1DBF230700F35185 /* Build configuration list for PBXNativeTarget "iOSInterViewTests" */ = {
 			isa = XCConfigurationList;
@@ -527,6 +534,7 @@
 				60BAEAEF1DBF230700F35185 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		60BAEAF01DBF230700F35185 /* Build configuration list for PBXNativeTarget "iOSInterViewUITests" */ = {
 			isa = XCConfigurationList;
@@ -535,6 +543,7 @@
 				60BAEAF21DBF230700F35185 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

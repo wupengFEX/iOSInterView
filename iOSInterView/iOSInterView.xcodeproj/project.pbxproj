@@ -18,6 +18,7 @@
 		60BAEAE61DBF230700F35185 /* iOSInterViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BAEAE51DBF230700F35185 /* iOSInterViewUITests.m */; };
 		60BAEAF51DBF239A00F35185 /* BinarySortTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BAEAF41DBF239A00F35185 /* BinarySortTree.m */; };
 		60BAEAF81DBF23E100F35185 /* LinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BAEAF71DBF23E100F35185 /* LinkedList.m */; };
+		60C0ED8D1DC33634000D4B3A /* NSArraySort.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C0ED8C1DC33634000D4B3A /* NSArraySort.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		60BAEAF41DBF239A00F35185 /* BinarySortTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BinarySortTree.m; sourceTree = "<group>"; };
 		60BAEAF61DBF23E100F35185 /* LinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkedList.h; sourceTree = "<group>"; };
 		60BAEAF71DBF23E100F35185 /* LinkedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkedList.m; sourceTree = "<group>"; };
+		60C0ED8B1DC33634000D4B3A /* NSArraySort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSArraySort.h; sourceTree = "<group>"; };
+		60C0ED8C1DC33634000D4B3A /* NSArraySort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSArraySort.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +128,8 @@
 				60BAEAC01DBF230700F35185 /* Supporting Files */,
 				602502731DC1C93C0051BE52 /* NSArray+StackAndQueue.h */,
 				602502741DC1C93C0051BE52 /* NSArray+StackAndQueue.m */,
+				60C0ED8B1DC33634000D4B3A /* NSArraySort.h */,
+				60C0ED8C1DC33634000D4B3A /* NSArraySort.m */,
 			);
 			path = iOSInterView;
 			sourceTree = "<group>";
@@ -291,6 +296,7 @@
 				602502751DC1C93C0051BE52 /* NSArray+StackAndQueue.m in Sources */,
 				60BAEAF51DBF239A00F35185 /* BinarySortTree.m in Sources */,
 				60BAEAC81DBF230700F35185 /* ViewController.m in Sources */,
+				60C0ED8D1DC33634000D4B3A /* NSArraySort.m in Sources */,
 				60BAEAC51DBF230700F35185 /* AppDelegate.m in Sources */,
 				60BAEAF81DBF23E100F35185 /* LinkedList.m in Sources */,
 				60BAEAC21DBF230700F35185 /* main.m in Sources */,

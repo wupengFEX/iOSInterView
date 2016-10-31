@@ -175,4 +175,41 @@
  */
 + (void)deleteNodeInTree:(BinarySortTree *)root deleteNode:(NSInteger)value;
 
+/**
+ * desc: 判断一棵树是否是二叉搜索树，二叉搜索树特点：父节点的值大于所有左子树的值，小于所有右子树的值，前提是假设所有值没有相同的
+ *
+ * params：根结点，插入的值
+ *
+ */
++ (BOOL)isBinarySearchTree:(BinarySortTree *)root;
+
+/**
+ * desc: 判断一棵树是否是另一棵树的子树
+ *
+ * params：root 父树根节点，childNode 子树根节点
+ *
+ */
++ (BOOL)isContainTree:(BinarySortTree *)root childNode:(BinarySortTree *)childNode;
+
+/**
+ * desc: 找出一棵二叉树中所有路径，并且其路径之和等于一个给定的值
+ *
+ * params: root 根节点，path 暂时存储路径的数组，vector 返回最终符合要求的数组，sum 给定值
+ */
++ (void)findAllPathInTree:(BinarySortTree *)root pathArray:(NSMutableArray *)path vectore:(NSMutableArray *)vectore sum:(NSInteger)sum;
+
+/**
+ * desc: 找出二叉树中一个节点的后继
+ *
+ * params: root 根节点，node 目标节点
+ */
++ (BinarySortTree *)findSuccessor:(BinarySortTree *)root searchNode:(BinarySortTree *)node;
+
+/**
+ * desc: 找出二叉树中一个节点的前驱
+ *
+ * params: root 根节点，node 目标节点
+ */
++ (BinarySortTree *)findPrecursor:(BinarySortTree *)root searchNode:(BinarySortTree *)node;
+
 @end

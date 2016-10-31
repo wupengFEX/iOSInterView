@@ -533,4 +533,125 @@
     return middleNode;
 }
 
+// 判断二叉树是否是二叉搜索树
++ (BOOL)isBinarySearchTree:(BinarySortTree *)root {
+    
+    if (nil == root) {
+        return YES;
+    }
+
+    if ((root.leftNode && root.value < root.leftNode.value) || (root.rightNode && root.value > root.rightNode.value)) {
+        return NO;
+    }
+    [self isBinarySearchTree:root.leftNode];
+    [self isBinarySearchTree:root.rightNode];
+    
+    return YES;
+}
+
+// 判断一棵树是否是另一棵树的子树
++ (BOOL)isContainTree:(BinarySortTree *)root childNode:(BinarySortTree *)childNode {
+    if (nil == childNode) {
+        return YES;
+    }
+    
+    if (nil == root) {
+        return NO;
+    }
+    
+    if (root.value == childNode.value) {
+        if ([self isMatch:root childNode:childNode]) {
+            return YES;
+        }
+    }
+    
+    return [self isContainTree:root.leftNode childNode:childNode] || [self isContainTree:root.rightNode childNode:childNode];
+}
+
++ (BOOL)isMatch:(BinarySortTree *)root childNode:(BinarySortTree *)childNode {
+    if (nil == root && nil == childNode) {
+        return YES;
+    }
+    if (nil == root || nil == childNode) {
+        return NO;
+    }
+    if (root.value != childNode.value) {
+        return NO;
+    }
+    return [self isMatch:root.leftNode childNode:childNode.leftNode] && [self isMatch:root.rightNode childNode:childNode.rightNode];
+}
+
+// 找出一棵二叉树中所有路径，并且其路径之和等于一个给定的值
++ (void)findAllPathInTree:(BinarySortTree *)root pathArray:(NSMutableArray *)path vectore:(NSMutableArray *)vectore sum:(NSInteger)sum {
+    if (nil == root) {
+        return;
+    }
+    if (nil != root && nil == root.leftNode && nil == root.rightNode && sum - root.value > 0) {
+        [path removeLastObject];
+    }
+    
+    [path addObject:[NSNumber numberWithInteger:root.value]];
+    if (sum == root.value) {
+        [vectore addObject:[[NSMutableArray alloc] initWithArray:path]];
+    }
+    
+    [self findAllPathInTree:root.leftNode pathArray:path vectore:vectore sum:(sum - root.value)];
+    [self findAllPathInTree:root.rightNode pathArray:path vectore:vectore sum:(sum - root.value)];
+}
+
+// 中序遍历不带父链接的二叉树，找到给定节点的下一个节点，后继为比当前节点大的所有节点中值最小的那个
++ (BinarySortTree *)findSuccessor:(BinarySortTree *)root searchNode:(BinarySortTree *)node {
+    if (nil == root) {
+        return nil;
+    }
+    
+    if (nil != node.rightNode) {
+        BinarySortTree *left = node.rightNode;
+        while (left.leftNode) {
+            left = left.leftNode;
+        }
+        return left;
+    }
+    
+    BinarySortTree *parentNode = nil;
+    while (root) {
+        if (root.value > node.value) {
+            parentNode = root;
+            root = root.leftNode;
+        }
+        else {
+            root = root.rightNode;
+        }
+    }
+    
+    return parentNode;
+}
+
+// 中序遍历不带父链接的二叉树，找到给定节点的下一个节点，后继为比当前节点小的所有节点中值最大的那个
++ (BinarySortTree *)findPrecursor:(BinarySortTree *)root searchNode:(BinarySortTree *)node {
+    if (nil == root) {
+        return nil;
+    }
+    
+    if (node.leftNode) {
+        BinarySortTree *right = node.leftNode;
+        while (right.rightNode) {
+            right = right.rightNode;
+        }
+        return right;
+    }
+    
+    BinarySortTree *parentNode = nil;
+    while (root) {
+        if (root.value >= node.value) {
+            root = root.leftNode;
+        }
+        else {
+            parentNode = root;
+            root = root.rightNode;
+        }
+    }
+    return parentNode;
+}
+
 @end

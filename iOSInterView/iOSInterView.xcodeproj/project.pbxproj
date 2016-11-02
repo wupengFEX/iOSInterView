@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		602502751DC1C93C0051BE52 /* NSArray+StackAndQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 602502741DC1C93C0051BE52 /* NSArray+StackAndQueue.m */; };
+		607AE7401DC9DDDD0022030F /* GraphTheory.m in Sources */ = {isa = PBXBuildFile; fileRef = 607AE73F1DC9DDDD0022030F /* GraphTheory.m */; };
+		607AE7431DC9E8EC0022030F /* GraphNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 607AE7421DC9E8EC0022030F /* GraphNode.m */; };
 		60BAEAC21DBF230700F35185 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BAEAC11DBF230700F35185 /* main.m */; };
 		60BAEAC51DBF230700F35185 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BAEAC41DBF230700F35185 /* AppDelegate.m */; };
 		60BAEAC81DBF230700F35185 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BAEAC71DBF230700F35185 /* ViewController.m */; };
@@ -41,6 +43,10 @@
 /* Begin PBXFileReference section */
 		602502731DC1C93C0051BE52 /* NSArray+StackAndQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+StackAndQueue.h"; sourceTree = "<group>"; };
 		602502741DC1C93C0051BE52 /* NSArray+StackAndQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+StackAndQueue.m"; sourceTree = "<group>"; };
+		607AE73E1DC9DDDD0022030F /* GraphTheory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphTheory.h; sourceTree = "<group>"; };
+		607AE73F1DC9DDDD0022030F /* GraphTheory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphTheory.m; sourceTree = "<group>"; };
+		607AE7411DC9E8EC0022030F /* GraphNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphNode.h; sourceTree = "<group>"; };
+		607AE7421DC9E8EC0022030F /* GraphNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphNode.m; sourceTree = "<group>"; };
 		60BAEABD1DBF230700F35185 /* iOSInterView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSInterView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60BAEAC11DBF230700F35185 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		60BAEAC31DBF230700F35185 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -130,6 +136,10 @@
 				602502741DC1C93C0051BE52 /* NSArray+StackAndQueue.m */,
 				60C0ED8B1DC33634000D4B3A /* NSArraySort.h */,
 				60C0ED8C1DC33634000D4B3A /* NSArraySort.m */,
+				607AE73E1DC9DDDD0022030F /* GraphTheory.h */,
+				607AE73F1DC9DDDD0022030F /* GraphTheory.m */,
+				607AE7411DC9E8EC0022030F /* GraphNode.h */,
+				607AE7421DC9E8EC0022030F /* GraphNode.m */,
 			);
 			path = iOSInterView;
 			sourceTree = "<group>";
@@ -296,8 +306,10 @@
 				602502751DC1C93C0051BE52 /* NSArray+StackAndQueue.m in Sources */,
 				60BAEAF51DBF239A00F35185 /* BinarySortTree.m in Sources */,
 				60BAEAC81DBF230700F35185 /* ViewController.m in Sources */,
+				607AE7431DC9E8EC0022030F /* GraphNode.m in Sources */,
 				60C0ED8D1DC33634000D4B3A /* NSArraySort.m in Sources */,
 				60BAEAC51DBF230700F35185 /* AppDelegate.m in Sources */,
+				607AE7401DC9DDDD0022030F /* GraphTheory.m in Sources */,
 				60BAEAF81DBF23E100F35185 /* LinkedList.m in Sources */,
 				60BAEAC21DBF230700F35185 /* main.m in Sources */,
 			);

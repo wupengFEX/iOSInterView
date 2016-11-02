@@ -393,3 +393,29 @@
  */
 + (NSMutableArray *)bucketSort:(NSMutableArray *)array numbersOfBuckets:(NSInteger)num;
 ```
+### 图
+```
+/**
+ * desc：通过邻接矩阵的形式创建图
+ *
+ * params: isDG 是否是有向图，1是，0否 verNum 顶点总数，arcNum 弧的总数，vexs 顶点数组，arcInfo 弧信息，包括起始点，终止点，以及权重
+ *
+ */
++ (GraphNode *)createGraphWithInfo:(BOOL)isDG numberOfVex:(int)verNum numberOfArc:(int)arcNum vexArray:(NSArray *)vexs arcInfo:(NSArray *)arcInfo;
+
+/**
+ * desc：深度优先遍历
+ *
+ * params: graph 图
+ *
+ */
++ (void)graphDFS:(GraphNode *)graph;
+
+/**
+ * desc：广度优先遍历
+ *
+ * params: graph 图
+ *
+ */
++ (void)graphBFS:(GraphNode *)graph;
+```

@@ -58,8 +58,71 @@ static NSMutableArray *queue;
     return graph;
 }
 
++ (GraphMatrix *)createGraphMatrixWithInfo:(BOOL)isDG numberOfVex:(int)verNum numberOfArc:(int)arcNum vexArray:(NSArray *)vexs arcInfo:(NSArray *)arcInfo {
+    if (verNum <= 0 || arcNum <= 0) {
+        return nil;
+    }
+    if (!([vexs isKindOfClass:[NSArray class]] &&
+          [arcInfo isKindOfClass:[NSArray class]] &&
+          [vexs count] > 0 && [arcInfo count] > 0)) {
+        return nil;
+    }
+    GraphMatrix *matrix = [[GraphMatrix alloc] init];
+    matrix.verNum = verNum;
+    matrix.arcNum = arcNum;
+    matrix.vers = [[NSMutableArray alloc] initWithArray:vexs];
+    matrix.matrix = [[NSMutableArray alloc] initWithCapacity:verNum];
+    // 是否是有向图
+    if (isDG) {
+        matrix.graphType = 1;
+    }
+    else {
+        matrix.graphType = 0;
+    }
+    
+    for (int i = 0; i < verNum; i++) {
+        matrix.matrix[i] = [[GraphMatrixNode alloc] init];
+        GraphMatrixNode *node = matrix.matrix[i];
+        node.data = vexs[i];
+    }
+    
+    for (int i = 0; i < arcNum; i++) {
+        int start = [self getIndexOfMatrixVexs:matrix nodeName:[arcInfo[i] valueForKey:@"start"]];
+        int end = [self getIndexOfMatrixVexs:matrix nodeName:[arcInfo[i] valueForKey:@"end"]];
+        
+        if (matrix.graphType == 0) {
+            GraphMatrixNode *startDGNode = matrix.matrix[end];
+            GraphMatrixNode *endDGNode = [[GraphMatrixNode alloc] init];
+            endDGNode.data = vexs[start];
+            endDGNode.next = startDGNode.next;
+            startDGNode.next = endDGNode;
+        }
+        GraphMatrixNode *startNode = matrix.matrix[start];
+        GraphMatrixNode *endNode = [[GraphMatrixNode alloc] init];
+        endNode.data = vexs[end];
+        endNode.next = startNode.next;
+        startNode.next = endNode;
+    }
+    
+    return matrix;
+}
+
 + (int)getIndexOfVexs:(GraphNode *)graph nodeName:(NSString *)name {
     if (!(graph && [graph isKindOfClass:[GraphNode class]])) {
+        return 0;
+    }
+    
+    for (int i = 0; i < graph.verNum; i++) {
+        if ([graph.vers[i] isEqualToString:name]) {
+            return i;
+        }
+    }
+    
+    return 0;
+}
+
++ (int)getIndexOfMatrixVexs:(GraphMatrix *)graph nodeName:(NSString *)name {
+    if (!(graph && [graph isKindOfClass:[GraphMatrix class]])) {
         return 0;
     }
     
@@ -144,6 +207,44 @@ static NSMutableArray *queue;
         }
     }
     
+}
+
++ (void)inDegree:(GraphNode *)graph {
+    if (![graph isKindOfClass:[GraphNode class]]) {
+        return;
+    }
+    
+    if ([graph.arcs count] <= 0) {
+        return;
+    }
+    
+    int  k = 0;
+    for (int i = 0; i < graph.verNum; i++) {
+        for (int j = 0; j < graph.verNum; j++) {
+            if ([graph.arcs[i][j] intValue] != 0) {
+                k++;
+            }
+        }
+        NSLog(@"节点%@的入度是：%d", graph.vers[i], k);
+        k = 0;
+    }
+}
+
++ (void)outDegree:(GraphNode *)graph {
+    if (![graph isKindOfClass:[GraphNode class]]) {
+        return;
+    }
+    
+    int  k = 0;
+    for (int i = 0; i < graph.verNum; i++) {
+        for (int j = 0; j < graph.verNum; j++) {
+            if ([graph.arcs[j][i] intValue] != 0) {
+                k++;
+            }
+        }
+        NSLog(@"节点%@的入度是：%d", graph.vers[i], k);
+        k = 0;
+    }
 }
 
 @end

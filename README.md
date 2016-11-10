@@ -443,3 +443,25 @@
  */
 + (void)outDegree:(GraphNode *)graph;
 ```
+### 堆
+```
+/*
+ * desc: 建立并返回小顶堆
+ *
+ * params: heap 堆， len 长度
+ *
+ */
++ (NSMutableArray *)createMinHeap:(NSMutableArray *)heap length:(int)len;
+
+/*
+ * desc: top k
+ *
+ * option: 
+ * 1. 通过hash table记录输入的值，key为值，value为出现的次数
+ * 2. 建立容量为k的小顶堆
+ * 3. 按照hash table中的值入堆，返回结果
+ *
+ * params: heap 堆， len 长度
+ */
++ (NSMutableArray *)findTopKMaxNum:(NSMutableArray *)heap length:(int)len;
+```

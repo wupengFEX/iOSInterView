@@ -212,4 +212,18 @@
  */
 + (BinarySortTree *)findPrecursor:(BinarySortTree *)root searchNode:(BinarySortTree *)node;
 
+/**
+ * desc: 序列化二叉树
+ *
+ * params: root 根节点
+ */
++ (NSString *)serializeBinaryTree:(BinarySortTree *)root;
+
+/**
+ * desc: 反序列化二叉树
+ *
+ * params: root 根节点
+ */
++ (BinarySortTree *)deserializeBinaryTree:(NSString *)serialString;
+
 @end

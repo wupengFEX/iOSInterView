@@ -8,6 +8,9 @@
 
 #import "BinarySortTree.h"
 
+static NSMutableArray *serialString;
+static int serialCount;
+
 @interface BinarySortTree ()
 
 @property (nonatomic, assign) NSInteger nodeIndex;
@@ -627,7 +630,7 @@
     return parentNode;
 }
 
-// 中序遍历不带父链接的二叉树，找到给定节点的下一个节点，后继为比当前节点小的所有节点中值最大的那个
+// 中序遍历不带父链接的二叉树，找到给定节点的上一个节点，后继为比当前节点小的所有节点中值最大的那个
 + (BinarySortTree *)findPrecursor:(BinarySortTree *)root searchNode:(BinarySortTree *)node {
     if (nil == root) {
         return nil;
@@ -652,6 +655,40 @@
         }
     }
     return parentNode;
+}
+
++ (NSString *)serializeBinaryTree:(BinarySortTree *)root {
+    if (nil == serialString) {
+        serialString = [[NSMutableArray alloc] init];
+    }
+    
+    if (!(root && [root isKindOfClass:[BinarySortTree class]])) {
+        [serialString addObject:@"#"];
+        return nil;
+    }
+    
+    [serialString addObject:[NSString stringWithFormat:@"%d", (int)root.value]];
+    [self serializeBinaryTree:root.leftNode];
+    [self serializeBinaryTree:root.rightNode];
+    
+    return [serialString componentsJoinedByString:@","];
+}
+
++ (BinarySortTree *)deserializeBinaryTree:(NSString *)serialString {
+    if (nil == serialString) {
+        return nil;
+    }
+    
+    BinarySortTree *node;
+    NSArray *array = [serialString componentsSeparatedByString:@","];
+    if (![array[serialCount] isEqualToString:@"#"]) {
+        node = [[BinarySortTree alloc] init];
+        node.value = [array[serialCount] intValue];
+        serialCount++;
+        node.leftNode = [self deserializeBinaryTree:serialString];
+        node.rightNode = [self deserializeBinaryTree:serialString];
+    }
+    return node;
 }
 
 @end

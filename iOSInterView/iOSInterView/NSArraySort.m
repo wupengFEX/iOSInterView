@@ -11,6 +11,10 @@
 @implementation NSArraySort
 
 // 冒泡排序
+// 最佳情况 o(n)
+// 最差情况 o(n2)
+// 平均情况 o(n2)
+// 空间复杂度 o(1)
 + (NSMutableArray *)bubbleSort:(NSArray *)array {
     if (!([array isKindOfClass:[NSArray class]] && [array count] > 0)) {
         return nil;
@@ -30,6 +34,10 @@
 }
 
 // 选择排序
+// 最佳情况 o(n2)
+// 最差情况 o(n2)
+// 平均情况 o(n2)
+// 空间复杂度 o(1)
 + (NSMutableArray *)selectSort:(NSArray *)array {
     if (!([array isKindOfClass:[NSArray class]] && [array count] > 0)) {
         return nil;
@@ -53,6 +61,10 @@
 }
 
 // 插入排序
+// 最佳情况 o(n)
+// 最差情况 o(n2)
+// 平均情况 o(n2)
+// 空间复杂度 o(1)
 + (NSMutableArray *)insertSort:(NSArray *)array {
     if (!([array isKindOfClass:[NSArray class]] && [array count] > 0)) {
         return nil;
@@ -72,7 +84,11 @@
     return finalArray;
 }
 
-// 归并排序
+// 归并排序，时间复杂度计算可抽象为二叉树，每层n个节点，每层计算量为o(n)，深度为logn
+// 最佳情况 o(nlogn)
+// 最差情况 o(nlogn)
+// 平均情况 o(nlogn)
+// 空间复杂度 o(n)
 + (NSMutableArray *)mergeSort:(NSMutableArray *)array {
     if (!([array isKindOfClass:[NSMutableArray class]] && [array count] > 0)) {
         return nil;
@@ -123,6 +139,10 @@
 }
 
 // 快速排序
+// 最佳情况 o(nlogn)
+// 最差情况 o(n2)
+// 平均情况 o(nlogn)
+// 空间复杂度 o(logn)
 + (NSMutableArray *)quickSort:(NSMutableArray *)array {
     if (!([array isKindOfClass:[NSMutableArray class]] && [array count] > 0)) {
         return [[NSMutableArray alloc] init];
@@ -155,6 +175,10 @@
 }
 
 // 桶排序
+// 最佳情况 o(n + k)
+// 最差情况 o(n2)
+// 平均情况 o(n + k)
+// 空间复杂度 o(n + k)
 + (NSMutableArray *)bucketSort:(NSMutableArray *)array numbersOfBuckets:(NSInteger)num {
     if (!([array isKindOfClass:[NSArray class]] && [array count] > 0)) {
         return nil;

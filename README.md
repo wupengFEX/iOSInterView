@@ -192,6 +192,20 @@
  * params: root 根节点，node 目标节点
  */
 + (BinarySortTree *)findPrecursor:(BinarySortTree *)root searchNode:(BinarySortTree *)node;
+
+/**
+ * desc: 序列化二叉树
+ *
+ * params: root 根节点
+ */
++ (NSString *)serializeBinaryTree:(BinarySortTree *)root;
+
+/**
+ * desc: 反序列化二叉树
+ *
+ * params: root 根节点
+ */
++ (BinarySortTree *)deserializeBinaryTree:(NSString *)serialString;
 ```
 
 ### 链表
@@ -464,4 +478,20 @@
  * params: heap 堆， len 长度
  */
 + (NSMutableArray *)findTopKMaxNum:(NSMutableArray *)heap length:(int)len;
+```
+### 字符串
+```
+/*
+ * desc: 判断是否是回文
+ *
+ * params: str 字符串
+ */
++ (BOOL)isPanlindrome:(NSString *)str;
+
+/*
+ * desc: 提供一个字母字符串和数字字符串，从key中取一位出来（key向后移动以为），从str的第一个字母开始，根据取出的数值将str中的字母向后移动key位，如果到z/Z了从头循环
+ *
+ * params: str 字符串
+ */
++ (NSString *)convertString:(NSString *)str withKey:(NSString *)key;
 ```

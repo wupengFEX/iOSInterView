@@ -137,4 +137,96 @@
     return chr;
 }
 
+// move zero
+- (void)backZero {
+    NSMutableArray *array = (NSMutableArray *)self;
+    if (!([array count] > 0 && [array isKindOfClass:[NSMutableArray class]])) {
+        return;
+    }
+    
+    int count = 0;
+    // 将大于0的放在数组前面
+    for (int i = 0; i < [array count]; i++) {
+        if ([array[i] intValue] != 0) {
+            array[count++] = array[i];
+        }
+    }
+    // 数组后面填0
+    for (int i = count; i < [array count]; i++) {
+        array[i] = @0;
+    }
+}
+
+// 从一个数组中找到一对元素，其和是一个给数字，返回这些数字的下标
++ (id)twoSum:(NSArray *)array value:(NSInteger)val {
+    if ([array count] < 2) {
+        return nil;
+    }
+    
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    for (NSInteger i = 0; i < [array count]; i++) {
+        NSString *currentNum = [NSString stringWithFormat:@"%ld", val - [[array objectAtIndex:i] intValue]];
+        dict[currentNum] = [NSNumber numberWithInteger:i];
+    }
+    
+    for (NSInteger i = 0; i < [array count]; i++) {
+        NSString *currentNum = [NSString stringWithFormat:@"%d", [[array objectAtIndex:i] intValue]];
+        if (dict[currentNum]) {
+            return @[[NSNumber numberWithInteger:i], dict[currentNum]];
+        }
+    }
+    
+    return nil;
+}
+
+// 三个数相加和为一个指定数字
+- (NSMutableArray *)threeNumPlusToNum:(int)num {
+    NSMutableArray *array = (NSMutableArray *)self;
+    NSMutableArray *result = [[NSMutableArray alloc] init];
+    if (!([array count] > 0 && [array isKindOfClass:[NSMutableArray class]])) {
+        return nil;
+    }
+    
+    for (int i = 0; i < [array count] - 2; i++) {
+        if (i > 0 && [array[i] intValue] == [array[i - 1] intValue]) {
+            continue;
+        }
+        
+        int target = num - [array[i] intValue];
+        [self twoSumForThreeSum:array start:i + 1 target:target result:result];
+    }
+    
+    return result;
+}
+
+- (void)twoSumForThreeSum:(NSMutableArray *)array start:(int)start target:(int)target result:(NSMutableArray *)result {
+    int head = start;
+    int tail = (int)[array count] - 1;
+    
+    while (head < tail) {
+        int temp = [array[head] intValue] + [array[tail] intValue];
+        if (temp < target) {
+            head++;
+        }
+        else if (temp > target) {
+            tail--;
+        }
+        else {
+            NSMutableArray *dict = [[NSMutableArray alloc] init];
+            [dict push:array[start - 1]];
+            [dict push:array[head]];
+            [dict push:array[tail]];
+            [result push:dict];
+            
+            //为了防止出现重复的二元组，使结果等于target
+            int k = head+1;
+            while(k < tail && array[k] == array[head]) k++;
+            head = k;
+            k = tail-1;
+            while(k > head && array[k] == array[tail]) k--;
+            tail = k;
+        }
+    }
+}
+
 @end

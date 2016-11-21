@@ -335,6 +335,26 @@
  *
  */
 + (BOOL)judgeVaildString:(NSString *)string;
+
+/*
+ * desc: 给定一个数组，将其中的0放在数组最后
+ *
+ */
+- (void)backZero;
+
+/*
+ * desc: 从一个数组中找到一对元素，其和是一个给数字，返回这些数字的下标
+ *
+ * params: array 目标数组 val 要求的值
+ *
+ */
++ (id)twoSum:(NSArray *)array value:(NSInteger)val;
+
+/*
+ * desc: 给定一个数组，其中三个数字相加为固定值，返回所有符合要求的数
+ *
+ */
+- (NSMutableArray *)threeNumPlusToNum:(int)num;
 ```
 
 ###排序
@@ -494,4 +514,29 @@
  * params: str 字符串
  */
 + (NSString *)convertString:(NSString *)str withKey:(NSString *)key;
+
+/*
+ * desc: 判断一个字符串中所有字符都是唯一的
+ *
+ * params: str 判断的字符串
+ *
+ */
++ (BOOL)isUnique:(NSString *)str;
+
+/*
+ * desc: 两个字符串str，mainStr，判断是否能够使用str中的字符串来组成mainStr
+ *
+ * params: mainStr str
+ *
+ */
++ (BOOL)isContainString:(NSString *)mainStr combineString:(NSString *)str;
+
+/*
+ * desc: 单词置换
+ *
+ * params: strA strB
+ *
+ */
++ (BOOL)permutaionString:(NSString *)strA another:(NSString *)strB;
+
 ```

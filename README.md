@@ -357,7 +357,7 @@
 - (NSMutableArray *)threeNumPlusToNum:(int)num;
 ```
 
-###排序
+### 排序
 ```
 /**
  * desc: 冒泡排序
